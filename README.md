@@ -1,7 +1,9 @@
 ### Application Overview
 
 • A web frontend, implemented in React
+
 • A REST API, implemented in Python using the Django framework
+
 • A database, using MySQL
 
 <img src="https://github.com/adavarski/k8s-operators-playground/blob/main/screenshots/app.png?raw=true" width="650">
