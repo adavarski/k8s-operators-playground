@@ -1,4 +1,4 @@
-#### Application Overview
+### Application Overview
 
 • A web frontend, implemented in React
 • A REST API, implemented in Python using the Django framework
@@ -209,6 +209,7 @@ $ OPERATOR_NAME=visitors-go-operator
 $ operator-sdk new $OPERATOR_NAME
 ```
 
+```
 The Operator SDK generated many of the files in that repository. The files that were
 modified to run the Visitors Site application are:
 deploy/crds/
@@ -233,6 +234,8 @@ ices are running, creating them if necessary.
 the Visitors Site–specific logic. The Reconcile method contains the majority
 of the changes; it drives the overall flow of the Operator by calling out to func‐
 tions in the previously described files.
+
+```
 ```
 $ operator-sdk add api --api-version=example.com/v1 --kind=VisitorsApp
 $ operator-sdk add controller --api-version=example.com/v1 --kind=VisitorsApp
