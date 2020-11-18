@@ -1,0 +1,5 @@
+---
+- version: v1
+  group: example.com
+  kind: VisitorsApp
+  chart: /opt/helm/helm-charts/visitors-helm

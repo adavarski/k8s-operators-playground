@@ -1,0 +1,5 @@
+channels:
+- name: stable
+  currentCSV: visitors-ansible-operator.v1.0.0
+defaultChannel: stable
+packageName: visitors-ansible-operator

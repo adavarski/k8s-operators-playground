@@ -1,0 +1,5 @@
+---
+- version: v1
+  group: example.com
+  kind: VisitorsApp
+  role: /home/davar/Downloads/k8s-operators-LAB/chapters/ch06/TMP/visitors-ansible/visitors-ansible-operator/roles/visitorsapp
