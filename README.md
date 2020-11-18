@@ -366,7 +366,7 @@ bundle/example_v1_visitorsapp_crd.yaml
             frontendImage:
               type: string
 ```
-``
+```
 $ cp -a bundle/ k8s-operators-playground/OLM/ 
 $ cd k8s-operators-playground/OLM/
 ```
