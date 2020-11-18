@@ -4,6 +4,9 @@
 • A REST API, implemented in Python using the Django framework
 • A database, using MySQL
 
+<img src="https://github.com/adavarski/k8s-operators-playground/blob/main/screenshots/app.png?raw=true" width="650">
+
+
 ### Build docker images
 
 ```
@@ -41,6 +44,9 @@ $ minikube ip
 
 You can access the Visitors Site by opening a browser and
 going to http://192.168.99.100:30686.
+
+<img src="https://github.com/adavarski/k8s-operators-playground/blob/main/screenshots/visitors-dashboard.png?raw=true" width="650">
+
 
 Cleaning up
 
@@ -406,6 +412,9 @@ $ operator-courier push "$OPERATOR_DIR" "$QUAY_NAMESPACE" \
 By default, bundles pushed to Quay.io in this fashion are marked as
 private. Navigate to the image at https://quay.io/application/ and
 mark it as public so that it is accessible to the cluster.
+
+<img src="https://github.com/adavarski/k8s-operators-playground/blob/main/screenshots/quay.io-applications.png?raw=true" width="650">
+
 
 ```
 $ kubectl get pods -n marketplace 
