@@ -119,6 +119,8 @@ $ kubectl delete -f etcd-cluster-cr.yaml
 
 ### Adapter Operators
 
+<img src="https://github.com/adavarski/k8s-operators-playground/blob/main/screenshots/k8s-operators-model.png?raw=true" width="650">
+
 
 #### Helm Operator
 
