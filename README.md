@@ -39,7 +39,7 @@ Server Version: version.Info{Major:"1", Minor:"16", GitVersion:"v1.16.2", GitCom
 ### Manifest-based installation
 
 ```
-cd manifests
+$ cd manifests
 $ kubectl apply -f database.yaml
 $ kubectl apply -f backend.yaml
 $ kubectl apply -f frontend.yaml
@@ -60,7 +60,7 @@ $ kubectl delete -f frontend.yaml
 $ kubectl delete -f backend.yaml
 $ kubectl delete -f database.yaml
 ```
-#### k8s-operator based installation etcd: demo
+### k8s operator-based installation etcd: demo
 
 Deploy:
 
@@ -81,7 +81,7 @@ $ kubectl get pods
 $ kubectl describe etcdcluster/example-etcd-cluster
 ```
 
-Exercises:
+Exercices:
 
 ```
 $ kubectl get services --selector etcd_cluster=example-etcd-cluster
@@ -221,7 +221,7 @@ conventions. In particular, the Operator code must be located in your $GOPATH . 
 the GOPATH documentation for more information.
 
 ```
-cd k8s-operators/visitors-ansible
+$ cd k8s-operators/visitors-ansible
 $ OPERATOR_NAME=visitors-go-operator
 $ operator-sdk new $OPERATOR_NAME
 ```
@@ -261,7 +261,7 @@ Running the Go Operator outside of the cluster:
 
 ```
 $ kubectl apply -f deploy/crds/*_crd.yaml
-$ export OPERATOR_NAME=xx
+$ export OPERATOR_NAME=xxxxx
 $ operator-sdk up local --namespace default
 $ kubectl apply -f deploy/crds/*_cr.yaml
 ```
@@ -318,7 +318,7 @@ $ kubectl get deployment/etcd-operator -n default -o yaml
 $ kubectl get pods -n default
 $ echo "Deleting the Operator"; kubectl delete csv/etcdoperator.v0.9.4
 ```
-OLM Bundle
+OLM Bundle Creation
 
 ```
 $ cd k8s-operators/visitors-ansible/visitors-ansible-ready/visitors-ansible-operator
@@ -451,9 +451,12 @@ Installing the Operator Through OLM
 $ kubectl apply -f operator-group.yaml
 $ kubectl apply -f subscription.yaml
 $ kubectl get pods -n marketplace
+```
 
+Cleaning up:
+```
 $ kubectl delete -f subscription.yaml
-$ echo "Deleting the Operator"; kubectl delete csv/visitors-ansible-operator
-
+$ kubectl delete csv/visitors-ansible-operator
+...
 ```
 
