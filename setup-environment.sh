@@ -30,7 +30,7 @@ sudo apt install software-properties-common
 sudo apt-add-repository ppa:ansible/ansible
 sudo apt-get update
 sudo apt-get -y install ansible
-sudo apt-get install python-dev
+sudo apt-get -y install python-dev
 pip install ansible-runner
 pip install ansible-runner-http
 
