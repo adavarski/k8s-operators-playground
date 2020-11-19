@@ -6,6 +6,8 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.16.2/bin/l
 
 # Run minikube and wait 
 minikube start --cpus 2 --memory 4096
+minikube addons enable ingress
+
 
 sleep 300
 
