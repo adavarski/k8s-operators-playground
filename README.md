@@ -12,12 +12,15 @@
 ### Build docker images
 
 ```
-docker login
-docker build --tag visitors-service:1.0.0 . 
-docker push davarski/visitors-service:1.0.0
+$ docker login
 
-docker build --tag visitors-webui:1.0.0 .
-docker push davarski/visitors-webui:1.0.0
+$ cd docker/visitor-service
+$ docker build --tag visitors-service:1.0.0 . 
+$ docker push davarski/visitors-service:1.0.0
+
+$ cd docker/visitor-webui
+$ docker build --tag visitors-webui:1.0.0 .
+$ docker push davarski/visitors-webui:1.0.0
 ```
 
 ### Setup environment 
@@ -25,7 +28,7 @@ docker push davarski/visitors-webui:1.0.0
 $ ./setup_environment.sh
 ```
 
-Check
+Check:
 
 ```
 $ kubectl version
@@ -50,7 +53,7 @@ going to http://192.168.99.100:30686.
 <img src="https://github.com/adavarski/k8s-operators-playground/blob/main/screenshots/visitors-dashboard.png?raw=true" width="650">
 
 
-Cleaning up
+Cleaning up:
 
 ```
 $ kubectl delete -f frontend.yaml
@@ -59,9 +62,8 @@ $ kubectl delete -f database.yaml
 ```
 #### k8s-operator based installation etcd: demo
 
-### k8s operator etcd : demo
+Deploy:
 
-Deploy
 ```
 $ cd k8s-operator-etcd-demo
 $ kubectl describe clusterrole cluster-admin
@@ -79,7 +81,7 @@ $ kubectl get pods
 $ kubectl describe etcdcluster/example-etcd-cluster
 ```
 
-Exercises
+Exercises:
 
 ```
 $ kubectl get services --selector etcd_cluster=example-etcd-cluster
@@ -128,7 +130,9 @@ $ OPERATOR_NAME=visitors-helm-operator
 $ operator-sdk new $OPERATOR_NAME --api-version=example.com/v1 \
 --kind=VisitorsApp --type=helm
 ```
-Running the Helm Operator outside of the cluster
+
+Running the Helm Operator outside of the cluster:
+
 ```
 $ cp watches.yaml local-watches.yaml
 $ kubectl apply -f deploy/crds/*_crd.yaml
@@ -137,7 +141,8 @@ INFO[0000] Running the operator locally.
 INFO[0000] Using namespace default.
 ```
 
-Running an Operator as a Deployment Inside a Cluster
+Running an Operator as a Deployment Inside a Cluster:
+
 ```
 $ operator-sdk build davarski/visitors-helm-operator:0.1
 ```
@@ -145,6 +150,7 @@ Update the deploy/operator.yaml file that the SDK gen‐
 erates with the name of the image. The field to update is named image and can be
 found under:
 spec -> template -> spec -> containers
+
 ```
 $ kubectl apply -f deploy/crds/*_crd.yaml
 $ kubectl apply -f deploy/service_account.yaml
@@ -152,7 +158,8 @@ $ kubectl apply -f deploy/role.yaml
 $ kubectl apply -f deploy/role_binding.yaml
 $ kubectl apply -f deploy/operator.yaml
 ```
-Cleaning up 
+Cleaning up:
+
 ```
 $ kubectl delete -f deploy/operator.yaml
 $ kubectl delete -f deploy/role_binding.yaml
@@ -162,7 +169,7 @@ $ kubectl delete -f deploy/crds/*_crd.yaml
 ```
 #### Ansible Operator
 
-Building the Operator (or use configured k8s-operators/visitors-ansible/visitors-ansible-ready)
+Building the Operator (or use configured k8s-operators/visitors-ansible/visitors-ansible-ready):
 
 ```
 $ cd k8s-operators/visitors-ansible/ansible
@@ -170,7 +177,7 @@ $ OPERATOR_NAME=visitors-ansible-operator
 $ operator-sdk new $OPERATOR_NAME --api-version=example.com/v1 \
 --kind=VisitorsApp --type=ansible
 ```
-Running the Ansible Operator outside of the cluster
+Running the Ansible Operator outside of the cluster:
 ```
 $ cp watches.yaml local-watches.yaml
 $ kubectl apply -f deploy/crds/*_crd.yaml
@@ -179,7 +186,8 @@ INFO[0000] Running the operator locally.
 INFO[0000] Using namespace default.
 ```
 
-Running an Operator as a Deployment Inside a Cluster
+Running an Operator as a Deployment Inside a Cluster:
+
 ```
 $ operator-sdk build davarski/visitors-ansible-operator:0.1
 ```
@@ -187,6 +195,7 @@ Update the deploy/operator.yaml file that the SDK gen‐
 erates with the name of the image. The field to update is named image and can be
 found under:
 spec -> template -> spec -> containers
+
 ```
 $ kubectl apply -f deploy/crds/*_crd.yaml
 $ kubectl apply -f deploy/service_account.yaml
@@ -194,7 +203,7 @@ $ kubectl apply -f deploy/role.yaml
 $ kubectl apply -f deploy/role_binding.yaml
 $ kubectl apply -f deploy/operator.yaml
 ```
-Cleaning up
+Cleaning up:
 ```
 $ kubectl delete -f deploy/operator.yaml
 $ kubectl delete -f deploy/role_binding.yaml
@@ -205,7 +214,7 @@ $ kubectl delete -f deploy/crds/*_crd.yaml
 
 #### Go Operator
 
-Building the Operator
+Building the Operator:
 
 Since the Operator is written in Go, the project skeleton must adhere to the language
 conventions. In particular, the Operator code must be located in your $GOPATH . See
@@ -248,7 +257,8 @@ tions in the previously described files.
 $ operator-sdk add api --api-version=example.com/v1 --kind=VisitorsApp
 $ operator-sdk add controller --api-version=example.com/v1 --kind=VisitorsApp
 ```
-Running the Go Operator outside of the cluster
+Running the Go Operator outside of the cluster:
+
 ```
 $ kubectl apply -f deploy/crds/*_crd.yaml
 $ export OPERATOR_NAME=xx
@@ -256,7 +266,8 @@ $ operator-sdk up local --namespace default
 $ kubectl apply -f deploy/crds/*_cr.yaml
 ```
 
-Running an Operator as a Deployment Inside a Cluster
+Running an Operator as a Deployment Inside a Cluster:
+
 ```
 $ operator-sdk build davarski/visitors-go-operator:0.1
 ```
@@ -264,6 +275,7 @@ Update the deploy/operator.yaml file that the SDK gen‐
 erates with the name of the image. The field to update is named image and can be
 found under:
 spec -> template -> spec -> containers
+
 ```
 $ kubectl apply -f deploy/crds/*_crd.yaml
 $ kubectl apply -f deploy/service_account.yaml
@@ -271,7 +283,8 @@ $ kubectl apply -f deploy/role.yaml
 $ kubectl apply -f deploy/role_binding.yaml
 $ kubectl apply -f deploy/operator.yaml
 ```
-Cleaning up
+Cleaning up:
+
 ```
 $ kubectl delete -f deploy/operator.yaml
 $ kubectl delete -f deploy/role_binding.yaml
@@ -281,7 +294,8 @@ $ kubectl delete -f deploy/crds/*_crd.yaml
 ```
 ### Operator Lifecycle Manager (OLM)
 
-Check OLM
+Check OLM:
+
 ```
 $ kubectl get ns olm
 $ kubectl get pods -n olm
@@ -290,7 +304,8 @@ $ kubectl get catalogsource -n olm
 $ kubectl describe catalogsource/operatorhubio-catalog -n olm
 $ kubectl get packagemanifest -n olm
 ```
-Demo : etcd operator
+Demo (etcd k8s operator):
+
 ```
 $ cd OLM/demo-etcd
 $ kubectl apply -f all-og.yaml
@@ -304,6 +319,7 @@ $ kubectl get pods -n default
 $ echo "Deleting the Operator"; kubectl delete csv/etcdoperator.v0.9.4
 ```
 OLM Bundle
+
 ```
 $ cd k8s-operators/visitors-ansible/visitors-ansible-ready/visitors-ansible-operator
 $ operator-sdk olm-catalog gen-csv --csv-version 1.0.0
@@ -311,7 +327,7 @@ $ cd deploy/olm-catalog/visitors-ansible-operator
 $ mkdir bundle; cp 1.0.0/visitors-ansible-operator.v1.0.0.clusterserviceversion.yaml bundle;  cp visitors-ansible-operator.package.yaml bundle
 $ cp ../../crds/example.com_visitorsapps_crd.yaml bundle/example.com_v1_visitorsapps_crd.yaml 
 ```
-Edit bundle files
+Edit bundle files:
 
 ```
 bundle/visitors-ansible-operator.v1.0.0.clusterserviceversion.yaml
@@ -379,7 +395,7 @@ $ cp -a bundle/ k8s-operators-playground/OLM/
 $ cd k8s-operators-playground/OLM/
 ```
 
-Create the OperatorSource
+Create the OperatorSource:
 
 ```
 $ cd OLM
@@ -391,7 +407,7 @@ If there are no bundles at the endpoint when you create the source, the status w
 be Failed . You can ignore this for now; you’ll refresh this list later, once you’ve
 uploaded a bundle.
 
-Building the OLM Bundle
+Building the OLM Bundle:
 ```
 $ operator-courier verify ./bundle
 $ ./get-quay-token 
