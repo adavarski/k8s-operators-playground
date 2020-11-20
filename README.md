@@ -23,7 +23,7 @@ $ docker build --tag visitors-webui:1.0.0 .
 $ docker push davarski/visitors-webui:1.0.0
 ```
 
-### Setup environment 
+### Setup development environment 
 ```
 $ ./setup_environment.sh
 ```
