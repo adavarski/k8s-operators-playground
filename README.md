@@ -36,6 +36,8 @@ Client Version: version.Info{Major:"1", Minor:"16", GitVersion:"v1.16.2", GitCom
 Server Version: version.Info{Major:"1", Minor:"16", GitVersion:"v1.16.2", GitCommit:"c97fe5036ef3df2967d086711e6c0c405941e14b", GitTreeState:"clean", BuildDate:"2019-10-15T19:09:08Z", GoVersion:"go1.12.10", Compiler:"gc", Platform:"linux/amd64"}
 ```
 
+Note: Server & Client has to be the same Minor versions.
+
 ### Manifest-based installation
 
 ```
