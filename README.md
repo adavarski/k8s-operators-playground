@@ -1,4 +1,4 @@
-### Application Overview
+### Application Platform Overview
 
 • A web frontend, implemented in React
 
