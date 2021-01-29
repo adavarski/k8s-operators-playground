@@ -7,8 +7,6 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.16.2/bin/l
 # Run minikube and wait 
 minikube start --cpus 2 --memory 4096
 minikube addons enable ingress
-
-
 sleep 300
 
 # Set the release version variable for operator-sdk
@@ -44,7 +42,6 @@ kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manage
 
 # Install Marketplace Operator
 MARKETPLACE_VERSION=4.5
-
 OPERATOR_MARKETPLACE_VERSION="release-${MARKETPLACE_VERSION}"
 kubectl apply -f https://raw.githubusercontent.com/operator-framework/operator-marketplace/${OPERATOR_MARKETPLACE_VERSION}/deploy/upstream/01_namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/operator-framework/operator-marketplace/${OPERATOR_MARKETPLACE_VERSION}/deploy/upstream/03_operatorsource.crd.yaml
