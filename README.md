@@ -1,6 +1,6 @@
 ## Kubernetes Operators (Helm, Ansible, Go) Playground
 
-### Application Platform Overview
+### Application Platform Overview (simple example)
 
 • A web frontend, implemented in React
 
